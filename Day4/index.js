@@ -20,50 +20,50 @@ function getData(e) {
         }
     ];
 
-    // for (let i = 0; i < cards.length; i++) {
-    //     document.getElementById("projectList").innerHTML += `
-    //         <div class="col-md-4 mb-4">
-    //             <div class="card shadow-sm">
-    //                 <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
-    //                 <div class="card-body">
-    //                     <h5 class="card-title fw-bold">${cards[i].projectName}</h5>
-    //                     <p class="card-text text-muted">Durasi: ${cards[i].dateStart} - ${cards[i].dateEnd}</p>
-    //                     <p class="card-text">${cards[i].description}</p>
-    //                     <div class="d-flex my-3">
-    //                         ${cards[i].technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
-    //                     </div>
-    //                     <div class="d-flex justify-content-between">
-    //                         <button class="btn btn-dark px-4 me-1">Edit</button>
-    //                         <button class="btn btn-dark px-4 me-1">Delete</button>
-    //                     </div>
-    //                 </div>
-    //             </div>
+    for (let i = 0; i < cards.length; i++) {
+        document.getElementById("projectList").innerHTML += `
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">${cards[i].projectName}</h5>
+                        <p class="card-text text-muted">Durasi: ${cards[i].dateStart} - ${cards[i].dateEnd}</p>
+                        <p class="card-text">${cards[i].description}</p>
+                        <div class="d-flex my-3">
+                            ${cards[i].technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-dark px-4 me-1">Edit</button>
+                            <button class="btn btn-dark px-4 me-1">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+
+    // const projectCard = (card) => `
+    //     <div class="col-md-4 mb-4">
+    //     <div class="card shadow-sm">
+    //         <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
+    //         <div class="card-body">
+    //         <h5 class="card-title fw-bold">${card.projectName}</h5>
+    //         <p class="card-text text-muted">Durasi: ${card.dateStart} - ${card.dateEnd}</p>
+    //         <p class="card-text">${card.description}</p>
+    //         <div class="d-flex my-3">
+    //             ${card.technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
     //         </div>
-    //     `;
-    // }
+    //         <div class="d-flex justify-content-between">
+    //             <button class="btn btn-dark px-4 me-1">Edit</button>
+    //             <button class="btn btn-dark px-4 me-1">Delete</button>
+    //         </div>
+    //         </div>
+    //     </div>
+    //     </div>
+    // `;
 
-
-    const projectCard = (card) => `
-        <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-            <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
-            <div class="card-body">
-            <h5 class="card-title fw-bold">${card.projectName}</h5>
-            <p class="card-text text-muted">Durasi: ${card.dateStart} - ${card.dateEnd}</p>
-            <p class="card-text">${card.description}</p>
-            <div class="d-flex my-3">
-                ${card.technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
-            </div>
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-dark px-4 me-1">Edit</button>
-                <button class="btn btn-dark px-4 me-1">Delete</button>
-            </div>
-            </div>
-        </div>
-        </div>
-    `;
-
-    document.getElementById("projectList").innerHTML += cards.map(projectCard).join("");
+    // document.getElementById("projectList").innerHTML += cards.map(projectCard).join("");
 
 
 
