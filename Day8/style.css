@@ -1,0 +1,77 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.body-bg {
+    background-color: #dce0e4;
+}
+
+.header-bg {
+    padding: 10px 5px;
+}
+
+form {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Inter', sans-serif;
+    color: #000000;
+}
+
+button.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button.dropdown-toggle .caret {
+    margin-top: 0;
+    align-self: center;
+}
+
+.custom-btn {
+    background-color: #ffffff !important;
+}
+
+.small-text {
+    font-size: 1rem;
+}
+
+.input-group-append {
+    cursor: pointer;
+}
+
+.footer-bg {
+    background-color: #dce0e4;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+#projectList {
+    margin-top: 20px;
+}
+
+
+.tech-icon {
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    object-fit: contain; /* Ensure the image fits within the dimensions */
+    margin: 0 5px; /* Add spacing between icons */
+}
