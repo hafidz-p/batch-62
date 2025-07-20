@@ -20,32 +20,9 @@ function getData(e) {
         }
     ];
 
-    // for (let i = 0; i < cards.length; i++) {
-    //     document.getElementById("projectList").innerHTML += `
-    //         <div class="col-md-4 mb-4">
-    //             <div class="card shadow-sm">
-    //                 <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
-    //                 <div class="card-body">
-    //                     <h5 class="card-title fw-bold">${cards[i].projectName}</h5>
-    //                     <p class="card-text text-muted">Durasi: ${cards[i].dateStart} - ${cards[i].dateEnd}</p>
-    //                     <p class="card-text">${cards[i].description}</p>
-    //                     <div class="d-flex my-3">
-    //                         ${cards[i].technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
-    //                     </div>
-    //                     <div class="d-flex justify-content-between">
-    //                         <button class="btn btn-dark px-4 me-1">Edit</button>
-    //                         <button class="btn btn-dark px-4 me-1">Delete</button>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     `;
-    // }
-
-
     const projectCard = (card) => `
         <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
+        <div class="card shadow-sm" onclick="expandCard(${JSON.stringify(card).replace(/"/g, '&quot;')})">
             <img src="img/Screenshot 2025-05-08 073945.png" class="card-img-top" alt="Project Image">
             <div class="card-body">
             <h5 class="card-title fw-bold">${card.projectName}</h5>
@@ -65,11 +42,29 @@ function getData(e) {
 
     document.getElementById("projectList").innerHTML += cards.map(projectCard).join("");
 
-
-
     document.querySelector("form").reset();
 }
 
+function expandCard(card) {
+    const expandedView = `
+        <div class="container">
+            <h1>${card.projectName}</h1>
+            <p><strong>Duration:</strong> ${card.dateStart} - ${card.dateEnd}</p>
+            <p><strong>Description:</strong> ${card.description}</p>
+            <p><strong>Technologies:</strong></sp>
+            <div class="d-flex">
+                ${card.technologies.split(", ").map(tech => getTechnologyLogo(tech)).join("")}
+            </div>
+            <button class="btn btn-dark mt-4" onclick="goBack()">Go Back</button>
+        </div>
+    `;
+
+    document.body.innerHTML = expandedView;
+}
+
+function goBack() {
+    location.reload(); // Reload the page to go back to the original view
+}
 
 function getTechnologyLogo(tech) {
     const logos = {
@@ -82,8 +77,6 @@ function getTechnologyLogo(tech) {
     const logoUrl = logos[tech.trim()];
     return `<img src="${logoUrl}" alt="${tech}" class="tech-icon mx-2" title="${tech}">`;
 }
-
-
 
 function selectSubject(value) {
     const subjectElement = document.getElementById('selected-subject');
@@ -99,7 +92,6 @@ $(document).ready(function () {
         autoclose: true,      
         todayHighlight: true  
     });
-
 
     $('#datepicker2 input').datepicker({
         format: 'dd/mm/yyyy', 
